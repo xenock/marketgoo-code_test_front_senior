@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier-standard --format"
   },
   "author": "",
   "license": "ISC",
@@ -21,12 +22,29 @@
     "socket.io-client": "^2.3.0",
     "sqlite3": "^4.2.0"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*": [
+      "prettier-standard --lint",
+      "git add"
+    ]
+  },
   "devDependencies": {
     "@babel/core": "^7.10.0",
     "@babel/preset-react": "^7.10.0",
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.5.3",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
     "mini-css-extract-plugin": "^0.9.0",
+    "prettier-standard": "^16.4.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
   }
