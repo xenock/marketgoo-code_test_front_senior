@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "dev": "webpack-dev-server --mode development",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier-standard --format"
   },
@@ -13,6 +14,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "node-cron": "^2.0.3",
     "react": "^16.13.1",
@@ -46,6 +48,7 @@
     "mini-css-extract-plugin": "^0.9.0",
     "prettier-standard": "^16.4.1",
     "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
   }
 }

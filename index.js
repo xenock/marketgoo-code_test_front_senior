@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
 const app = express()
+const cors = require('cors')
 const port = 3000
 
 // BD INIT
@@ -47,6 +48,7 @@ Player.sync({ force: true }).then(() => {
   })
 })
 
+app.use(cors())
 // Middlewares
 app.use(bodyParser.json())
 

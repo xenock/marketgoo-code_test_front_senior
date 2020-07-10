@@ -4,7 +4,7 @@ import List from './components/List'
 import './index.css'
 
 import ReactDOM from 'react-dom'
-import socketIOClient from 'socket.io-client'
+import io from 'socket.io-client'
 const ENDPOINT = 'http://localhost:3000'
 
 const Root = () => {
@@ -19,7 +19,7 @@ const Root = () => {
 const container = document.getElementById('app')
 ReactDOM.render(<Root />, container)
 
-const socket = socketIOClient(ENDPOINT)
+const socket = io(ENDPOINT)
 socket.on('update/players', data => {
   console.log(data)
 })
