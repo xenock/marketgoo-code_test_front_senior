@@ -1,8 +1,8 @@
-This is a refactor exercise and his goal is to overall improve the proposed app. It shows a list of players with data about their team and their league score and we want you to propose solutions and implement them in order to improve the architecture, testability and UX. It's intentionally crappy so you can shine bright :) 
+This is a refactor exercise and his goal is to overall improve the proposed app. It shows a list of players with data about their team and their league score and we want you to propose solutions and implement them in order to improve the architecture, testability and UX. It's intentionally crappy so you can shine bright :)
 
 ## Requirements
 
-There are some mandatory constraints you have to attend: 
+There are some mandatory constraints you have to attend:
 
 - Update the management of the state using REDUX and use a library for the management of the requests (like redux thunk or sagas)
 - Use our component library Ola to build the interface [https://github.com/marketgoo/Ola](https://github.com/marketgoo/Ola)
@@ -34,25 +34,25 @@ There are some mandatory constraints you have to attend:
 
 ```json
 {
-    "status": "ok",
-    "data": [
-        {
-            "id":1,
-            "name":"Peter",
-            "team":"Pandas",
-            "score":5,
-            "createdAt":"2020-05-28 11:32:54.506 +00:00",
-            "updatedAt":"2020-05-28 11:32:54.506 +00:00"
-        },
-        {
-            "id":2,
-            "name":"Jhon",
-            "team":"Cobrakay",
-            "score":8,
-            "createdAt":"2020-05-28 11:32:54.507 +00:00",
-            "updatedAt":"2020-05-28 11:32:54.507 +00:00"
-        }
-    ]
+  "status": "ok",
+  "data": [
+    {
+      "id": 1,
+      "name": "Peter",
+      "team": "Pandas",
+      "score": 5,
+      "createdAt": "2020-05-28 11:32:54.506 +00:00",
+      "updatedAt": "2020-05-28 11:32:54.506 +00:00"
+    },
+    {
+      "id": 2,
+      "name": "Jhon",
+      "team": "Cobrakay",
+      "score": 8,
+      "createdAt": "2020-05-28 11:32:54.507 +00:00",
+      "updatedAt": "2020-05-28 11:32:54.507 +00:00"
+    }
+  ]
 }
 ```
 
@@ -60,12 +60,12 @@ There are some mandatory constraints you have to attend:
 
 ```json
 {
-    "status": "ok",
-    "data": {
-        "name": "saved-name",
-        "team": "saved-team",
-        "score": "saved-score"
-    }
+  "status": "ok",
+  "data": {
+    "name": "saved-name",
+    "team": "saved-team",
+    "score": "saved-score"
+  }
 }
 ```
 
@@ -73,7 +73,7 @@ There are some mandatory constraints you have to attend:
 
 ```json
 {
-    "status": "ok"
+  "status": "ok"
 }
 ```
 
