@@ -1,5 +1,6 @@
 import React from 'react'
 import List from './components/List'
+import { Button } from '@marketgoo/ola'
 
 import './index.css'
 
@@ -11,13 +12,13 @@ const Root = () => {
   return (
     <>
       <h1>League Champion</h1>
+      <Button variant='primary'>My Button</Button>
       <List />
     </>
   )
 }
 
-const container = document.getElementById('app')
-ReactDOM.render(<Root />, container)
+ReactDOM.render(<Root />, document.getElementById('app'))
 
 const socket = io(ENDPOINT)
 socket.on('update/players', data => {
