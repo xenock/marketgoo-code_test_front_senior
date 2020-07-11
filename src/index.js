@@ -1,6 +1,5 @@
 import React from 'react'
 import List from './components/List'
-import { Button } from '@marketgoo/ola'
 
 import './index.css'
 
@@ -11,8 +10,7 @@ const ENDPOINT = 'http://localhost:3000'
 const Root = () => {
   return (
     <>
-      <h1>League Champion</h1>
-      <Button variant='primary'>My Button</Button>
+      <h1 className='ola-title ola-nomargin'>League Champion</h1>
       <List />
     </>
   )

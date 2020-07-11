@@ -1,5 +1,8 @@
 import React from 'react'
 import axios from 'axios'
+import styles from './List.module.css'
+import { Table, TableRow, TableCell, Button } from '@marketgoo/ola'
+
 axios.defaults.baseURL = 'http://localhost:3000'
 
 class List extends React.Component {
@@ -49,31 +52,48 @@ class List extends React.Component {
 
     return (
       <>
-        <table>
+        <Table
+          caption={null}
+          responsive
+          sticky={false}
+          stiky
+          className={styles.table}
+        >
           <thead>
-            <tr>
-              <td>Player</td>
-              <td>Team</td>
-              <td>Score</td>
-              <td>Actions</td>
-            </tr>
+            <TableRow>
+              <TableCell header variant='left'>
+                Player
+              </TableCell>
+              <TableCell header variant='left'>
+                Team
+              </TableCell>
+              <TableCell header variant='right'>
+                Score
+              </TableCell>
+              <TableCell header variant='center'>
+                Actions
+              </TableCell>
+            </TableRow>
           </thead>
           <tbody>
             {players &&
-              players.data.map(x => (
-                <tr key={x.id}>
-                  <td>{x.name}</td>
-                  <td>{x.team}</td>
-                  <td>{x.score}</td>
-                  <td>
-                    <button onClick={() => this.handleDelete(x.id)}>
+              players.data.map(player => (
+                <TableRow key={player.id}>
+                  <TableCell variant='multiline'>{player.name}</TableCell>
+                  <TableCell variant='multiline'>{player.team}</TableCell>
+                  <TableCell variant='numeric'>{player.score}</TableCell>
+                  <TableCell variant='action'>
+                    <Button
+                      variant='primary'
+                      onClick={() => this.handleDelete(player.id)}
+                    >
                       Remove
-                    </button>
-                  </td>
-                </tr>
+                    </Button>
+                  </TableCell>
+                </TableRow>
               ))}
           </tbody>
-        </table>
+        </Table>
         <br />
         <form onSubmit={this.handleSubmit}>
           <h4>Add new players</h4>
