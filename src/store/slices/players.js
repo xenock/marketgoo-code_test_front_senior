@@ -3,10 +3,14 @@ import { createSlice } from '@reduxjs/toolkit'
 export const playerSlice = createSlice({
   name: 'players',
   initialState: [],
-  reducers: {}
+  reducers: {
+    addPlayers: (state, { payload }) => {
+      return [...state, ...payload]
+    }
+  }
 })
 
-export const { addToCart } = playerSlice.actions
+export const { addPlayers } = playerSlice.actions
 
 export default playerSlice.reducer
 

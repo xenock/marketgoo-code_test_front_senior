@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import io from 'socket.io-client'
-import List from './components/List'
+import App from './App'
 
 import store from './store/store'
 import { Provider } from 'react-redux'
@@ -13,8 +13,7 @@ const ENDPOINT = 'http://localhost:3000'
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <h1 className='ola-title ola-nomargin'>League Champion</h1>
-      <List />
+      <App />
     </Provider>
   </React.StrictMode>,
   document.getElementById('app')
