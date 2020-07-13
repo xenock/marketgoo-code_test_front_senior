@@ -1,7 +1,14 @@
 import React from 'react'
 import axios from 'axios'
 import styles from './List.module.css'
-import { Table, TableRow, TableCell, Button } from '@marketgoo/ola'
+import {
+  Table,
+  TableRow,
+  TableCell,
+  Button,
+  Input,
+  Field
+} from '@marketgoo/ola'
 
 axios.defaults.baseURL = 'http://localhost:3000'
 
@@ -96,23 +103,32 @@ class List extends React.Component {
         </Table>
         <br />
         <form onSubmit={this.handleSubmit}>
-          <h4>Add new players</h4>
-          <input
-            name='name'
-            placeholder='player name'
-            onChange={this.handleChange}
-          />
-          <input
-            name='team'
-            placeholder='team name'
-            onChange={this.handleChange}
-          />
-          <input
-            name='score'
-            placeholder='team score'
-            onChange={this.handleChange}
-          />
-          <button>Add</button>
+          <fieldset>
+            <legend>Add new players</legend>
+            <Field id='name' label='Player name'>
+              <Input
+                name='name'
+                placeholder='Player name'
+                onChange={this.handleChange}
+              />
+            </Field>
+            <Field id='team' label='Team name'>
+              <Input
+                name='team'
+                placeholder='Team name'
+                onChange={this.handleChange}
+              />
+            </Field>
+            <Field id='score' label='Team score'>
+              <Input
+                name='score'
+                type='number'
+                placeholder='Team score'
+                onChange={this.handleChange}
+              />
+            </Field>
+            <Button variant='primary'>Add</Button>
+          </fieldset>
         </form>
       </>
     )
