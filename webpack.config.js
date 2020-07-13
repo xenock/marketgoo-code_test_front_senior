@@ -12,6 +12,12 @@ module.exports = {
     contentBase: './src',
     hot: true
   },
+  resolve: {
+    alias: {
+      '@components': path.resolve(__dirname, 'src/components/'),
+      '@store': path.resolve(__dirname, 'src/store/')
+    }
+  },
   module: {
     rules: [
       {

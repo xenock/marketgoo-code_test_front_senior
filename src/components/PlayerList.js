@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import axios from 'axios'
 import { Table, TableRow, TableCell, Button } from '@marketgoo/ola'
-import { addPlayers, players as storedPlayers } from '../store/slices/players'
+import { addPlayers, players as storedPlayers } from '@store/slices/players'
 import { useDispatch, useSelector } from 'react-redux'
 
 axios.defaults.baseURL = 'http://localhost:3000'

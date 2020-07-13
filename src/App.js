@@ -1,7 +1,7 @@
 import React from 'react'
 
-import PlayerList from './components/PlayerList'
-import PlayerForm from './components/PlayerForm'
+import PlayerList from '@components/PlayerList'
+import PlayerForm from '@components/PlayerForm'
 
 const App = _ => (
   <>

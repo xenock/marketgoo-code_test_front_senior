@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
 import { Input, Field, Button } from '@marketgoo/ola'
-import { addPlayers } from '../store/slices/players'
+import { addPlayers } from '@store/slices/players'
 
 axios.defaults.baseURL = 'http://localhost:3000'
 
