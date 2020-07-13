@@ -1,22 +1,24 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
+import io from 'socket.io-client'
 import List from './components/List'
+
+import store from './store/store'
+import { Provider } from 'react-redux'
 
 import './index.css'
 
-import ReactDOM from 'react-dom'
-import io from 'socket.io-client'
 const ENDPOINT = 'http://localhost:3000'
 
-const Root = () => {
-  return (
-    <>
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={store}>
       <h1 className='ola-title ola-nomargin'>League Champion</h1>
       <List />
-    </>
-  )
-}
-
-ReactDOM.render(<Root />, document.getElementById('app'))
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('app')
+)
 
 const socket = io(ENDPOINT)
 socket.on('update/players', data => {
