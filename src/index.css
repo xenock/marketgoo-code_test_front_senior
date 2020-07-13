@@ -4,14 +4,8 @@ body {
   background-color: whitesmoke;
 }
 
-table {
-  width: 100%;
-}
-
-table,
-th,
-td {
-  border: 1px solid black;
+fieldset {
+  border: 0;
 }
 
 #app {
