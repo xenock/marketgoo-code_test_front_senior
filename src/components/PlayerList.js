@@ -1,7 +1,11 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import axios from 'axios'
 import { Table, TableRow, TableCell, Button } from '@marketgoo/ola'
-import { addPlayers, players as storedPlayers } from '@store/slices/players'
+import {
+  removePlayer,
+  removePlayerAPI,
+  players as storedPlayers
+} from '@store/slices/players'
 import { useDispatch, useSelector } from 'react-redux'
 
 axios.defaults.baseURL = 'http://localhost:3000'
@@ -10,18 +14,15 @@ const PlayerList = _ => {
   const dispatch = useDispatch()
   const players = useSelector(storedPlayers)
 
-  useEffect(_ => {
-    axios.get('/players').then(response => {
-      dispatch(addPlayers(response.data.data))
-    })
-  }, [])
-
   const handleDelete = id => {
-    axios.delete(`/players/${id}`).then(_ => {
-      axios.get('/players').then(response => {
-        dispatch(addPlayers(response.data.data))
+    dispatch(removePlayer(id))
+    dispatch(removePlayerAPI(id))
+      .then(() => {
+        console.log('Exito!')
       })
-    })
+      .catch(() => {
+        console.log('Fracaso!~')
+      })
   }
 
   return (
@@ -45,7 +46,7 @@ const PlayerList = _ => {
       <tbody>
         {players &&
           players.map(player => (
-            <TableRow key={player.id}>
+            <TableRow key={player.id || Math.random()}>
               <TableCell variant='multiline'>{player.name}</TableCell>
               <TableCell variant='multiline'>{player.team}</TableCell>
               <TableCell variant='numeric'>{player.score}</TableCell>

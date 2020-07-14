@@ -7,7 +7,6 @@ const App = _ => (
   <>
     <h1 className='ola-title ola-nomargin'>League Champion</h1>
     <PlayerList />
-    <br />
     <PlayerForm />
   </>
 )

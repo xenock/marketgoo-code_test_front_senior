@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
 import { Input, Field, Button } from '@marketgoo/ola'
-import { addPlayers } from '@store/slices/players'
+import { addPlayerAPI, addPlayer } from '@store/slices/players'
 
 axios.defaults.baseURL = 'http://localhost:3000'
 
@@ -18,14 +18,19 @@ const PlayerForm = () => {
     setPlayer({ ...player, [event.target.name]: event.target.value })
   }
 
-  const handleSubmit = event => {
+  const handleSubmit = (event, argo) => {
     event.preventDefault()
+    event.target.reset()
     const { name, team, score } = player
-    axios.post('/players', { name, team, score }).then(_ => {
-      axios.get('/players').then(response => {
-        dispatch(addPlayers(response.data.data))
+
+    dispatch(addPlayer({ name, team, score }))
+    dispatch(addPlayerAPI({ name, team, score }))
+      .then(() => {
+        console.log('Exito!')
       })
-    })
+      .catch(() => {
+        console.log('Fracaso!~')
+      })
   }
 
   return (

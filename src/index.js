@@ -4,6 +4,7 @@ import io from 'socket.io-client'
 import App from './App'
 
 import store from '@store/store'
+import { syncPlayers } from '@store/slices/players'
 import { Provider } from 'react-redux'
 
 import './index.css'
@@ -21,5 +22,5 @@ ReactDOM.render(
 
 const socket = io(ENDPOINT)
 socket.on('update/players', data => {
-  console.log(data)
+  store.dispatch(syncPlayers(data))
 })
