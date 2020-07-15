@@ -15,12 +15,14 @@ const PlayerForm = () => {
     score: null
   }
   const [player, setPlayer] = useState(initialPlayer)
+  const [synchronizing, setSynchronizing] = useState(false)
 
   const handleChange = event => {
     setPlayer({ ...player, [event.target.name]: event.target.value })
   }
 
   const handleSubmit = event => {
+    setSynchronizing('syncing')
     event.preventDefault()
     event.target.reset()
 
@@ -28,10 +30,12 @@ const PlayerForm = () => {
       .then(response => {
         toast.success(`🦄 ${response.payload.data.name} added successfully!`)
         setPlayer(initialPlayer)
+        setSynchronizing(null)
       })
       .catch(_ => {
         toast.error('🦄 There was an error...')
         setPlayer(initialPlayer)
+        setSynchronizing(null)
       })
   }
 
@@ -58,7 +62,9 @@ const PlayerForm = () => {
             onChange={handleChange}
           />
         </Field>
-        <Button variant='primary'>Add</Button>
+        <Button busy={synchronizing} variant='primary'>
+          Add
+        </Button>
       </fieldset>
     </form>
   )
