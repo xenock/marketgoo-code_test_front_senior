@@ -2,11 +2,11 @@ import React from 'react'
 import axios from 'axios'
 import { Table, TableRow, TableCell, Button } from '@marketgoo/ola'
 import {
-  removePlayer,
   removePlayerAPI,
   players as storedPlayers
 } from '@store/slices/players'
 import { useDispatch, useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
 
 axios.defaults.baseURL = 'http://localhost:3000'
 
@@ -14,14 +14,13 @@ const PlayerList = _ => {
   const dispatch = useDispatch()
   const players = useSelector(storedPlayers)
 
-  const handleDelete = id => {
-    dispatch(removePlayer(id))
-    dispatch(removePlayerAPI(id))
-      .then(() => {
-        console.log('Exito!')
+  const handleDelete = player => {
+    dispatch(removePlayerAPI(player))
+      .then(response => {
+        toast.success(`🦄 ${player.name} removed successfully!`)
       })
-      .catch(() => {
-        console.log('Fracaso!~')
+      .catch(_ => {
+        toast.error('🦄 There was an error...')
       })
   }
 
@@ -51,10 +50,7 @@ const PlayerList = _ => {
               <TableCell variant='multiline'>{player.team}</TableCell>
               <TableCell variant='numeric'>{player.score}</TableCell>
               <TableCell variant='action'>
-                <Button
-                  variant='primary'
-                  onClick={() => handleDelete(player.id)}
-                >
+                <Button variant='primary' onClick={() => handleDelete(player)}>
                   Remove
                 </Button>
               </TableCell>

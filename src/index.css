@@ -1,7 +1,8 @@
 @import '~@marketgoo/ola/dist/index.css';
+@import '~react-toastify/dist/ReactToastify.css';
 
 body {
-  background-color: whitesmoke;
+  background-color: coral;
 }
 
 fieldset {

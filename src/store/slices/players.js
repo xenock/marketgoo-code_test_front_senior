@@ -7,17 +7,15 @@ export const addPlayerAPI = createAsyncThunk(
   'players/addPlayerAPI',
   async (player, thunkAPI) => {
     const response = await axios.post('/players', player)
-    console.log(response)
     return response.data
   }
 )
 
 export const removePlayerAPI = createAsyncThunk(
   'players/removePlayerAPI',
-  async (id, hunkAPI) => {
-    const response = await axios.delete(`/players/${id}`)
-    console.log(response)
-    return response.status
+  async (player, thunkAPI) => {
+    await axios.delete(`/players/${player.id}`)
+    return player
   }
 )
 
@@ -27,21 +25,14 @@ export const playerSlice = createSlice({
   reducers: {
     syncPlayers: (state, { payload }) => {
       return [...payload]
-    },
-    addPlayer: (state, { payload }) => {
-      return [...state, payload]
-    },
-    removePlayer: (state, { payload }) => {
-      console.log('8=========D', payload)
-      return state.filter(player => player.id !== payload)
     }
   },
   extraReducers: {
-    [addPlayerAPI]: (state, action) => {
-      console.log(state, action)
+    [addPlayerAPI.fulfilled]: (state, action) => {
+      return [...state, action.payload.data]
     },
-    [removePlayerAPI]: (state, action) => {
-      console.log(state, action)
+    [removePlayerAPI.fulfilled]: (state, action) => {
+      return state.filter(player => player.id !== action.payload.id)
     }
   }
 })
