@@ -1,0 +1,8 @@
+{
+  "moduleNameMapper": {
+    "^@store(.*)$": "<rootDir>/src/store$1",
+    "^@slices(.*)$": "<rootDir>/src/store/slices$1",
+    "^@components(.*)$": "<rootDir>/src/components$1",
+    "^@fixtures(.*)$": "<rootDir>/fixtures$1"
+  }
+}

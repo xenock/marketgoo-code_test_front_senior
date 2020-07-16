@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { Table, TableRow, TableCell, Button, Spinner } from '@marketgoo/ola'
-import {
-  removePlayerAPI,
-  players as storedPlayers
-} from '@store/slices/players'
+import { removePlayerAPI, players as storedPlayers } from '@slices/players.js'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 
