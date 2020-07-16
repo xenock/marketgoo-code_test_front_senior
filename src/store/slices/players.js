@@ -7,7 +7,7 @@ export const addPlayerAPI = createAsyncThunk(
   'players/addPlayerAPI',
   async (player, thunkAPI) => {
     const response = await axios.post('/players', player)
-    return response.data
+    return response.data.data
   }
 )
 
@@ -19,7 +19,7 @@ export const removePlayerAPI = createAsyncThunk(
   }
 )
 
-export const playerSlice = createSlice({
+const playerSlice = createSlice({
   name: 'players',
   initialState: [],
   reducers: {
@@ -29,7 +29,7 @@ export const playerSlice = createSlice({
   },
   extraReducers: {
     [addPlayerAPI.fulfilled]: (state, action) => {
-      return [...state, action.payload.data]
+      return [...state, action.payload]
     },
     [removePlayerAPI.fulfilled]: (state, action) => {
       return state.filter(player => player.id !== action.payload.id)

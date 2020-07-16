@@ -28,7 +28,7 @@ const PlayerForm = () => {
 
     dispatch(addPlayerAPI(player))
       .then(response => {
-        toast.success(`🦄 ${response.payload.data.name} added successfully!`)
+        toast.success(`🦄 ${response.payload.name} added successfully!`)
         setPlayer(initialPlayer)
         setSynchronizing(null)
       })
