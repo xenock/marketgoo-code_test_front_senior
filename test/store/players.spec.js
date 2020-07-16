@@ -2,8 +2,8 @@ import reducer, {
   syncPlayers,
   addPlayerAPI,
   removePlayerAPI
-} from '../src/store/slices/players.js'
-import payloadPlayers from '../fixtures/players.js'
+} from '@slices/players.js'
+import payloadPlayers from '@fixtures/players.js'
 
 describe('players slice', () => {
   describe('reducer, actions, and selectors', () => {

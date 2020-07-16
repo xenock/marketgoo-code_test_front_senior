@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
 import { Input, Field, Button } from '@marketgoo/ola'
-import { addPlayerAPI } from '@store/slices/players'
+import { addPlayerAPI } from '@slices/players.js'
 import { toast } from 'react-toastify'
 
 axios.defaults.baseURL = 'http://localhost:3000'
@@ -16,44 +16,52 @@ const PlayerForm = () => {
   }
   const [player, setPlayer] = useState(initialPlayer)
   const [synchronizing, setSynchronizing] = useState(false)
+  const [valid, setValid] = useState(true)
 
   const handleChange = event => {
     setPlayer({ ...player, [event.target.name]: event.target.value })
   }
 
   const handleSubmit = event => {
-    setSynchronizing('syncing')
     event.preventDefault()
-    event.target.reset()
 
-    dispatch(addPlayerAPI(player))
-      .then(response => {
-        toast.success(`🦄 ${response.payload.name} added successfully!`)
-        setPlayer(initialPlayer)
-        setSynchronizing(null)
-      })
-      .catch(_ => {
-        toast.error('🦄 There was an error...')
-        setPlayer(initialPlayer)
-        setSynchronizing(null)
-      })
+    const { name, team, score } = player
+    if (!name || !team || !score) {
+      setValid(false)
+    } else {
+      setSynchronizing('syncing')
+      setValid(true)
+      event.target.reset()
+
+      dispatch(addPlayerAPI(player))
+        .then(response => {
+          toast.success(`🦄 ${response.payload.name} added successfully!`)
+          setPlayer(initialPlayer)
+          setSynchronizing(null)
+        })
+        .catch(_ => {
+          toast.error('🦄 There was an error...')
+          setPlayer(initialPlayer)
+          setSynchronizing(null)
+        })
+    }
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <fieldset>
         <legend>Add new players</legend>
-        <Field id='name' label='Player name'>
+        <Field id='name' label='Player name' error={!valid && !player.name}>
           <Input
             name='name'
             placeholder='Player name'
             onChange={handleChange}
           />
         </Field>
-        <Field id='team' label='Team name'>
+        <Field id='team' label='Team name' error={!valid && !player.team}>
           <Input name='team' placeholder='Team name' onChange={handleChange} />
         </Field>
-        <Field id='score' label='Team score'>
+        <Field id='score' label='Team score' error={!valid && !player.score}>
           <Input
             name='score'
             type='number'

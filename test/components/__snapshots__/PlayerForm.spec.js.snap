@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlayerForm snapshots renders 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <fieldset>
+    <legend>
+      Add new players
+    </legend>
+    <div
+      className="ola_field"
+    >
+      <label
+        className="ola_field-label"
+        htmlFor="name"
+      >
+        Player name
+      </label>
+      <div
+        className="ola_field-input"
+      >
+        <input
+          className="ola_input"
+          disabled={false}
+          id="name"
+          name="name"
+          onChange={[Function]}
+          placeholder="Player name"
+          type="text"
+        />
+      </div>
+    </div>
+    <div
+      className="ola_field"
+    >
+      <label
+        className="ola_field-label"
+        htmlFor="team"
+      >
+        Team name
+      </label>
+      <div
+        className="ola_field-input"
+      >
+        <input
+          className="ola_input"
+          disabled={false}
+          id="team"
+          name="team"
+          onChange={[Function]}
+          placeholder="Team name"
+          type="text"
+        />
+      </div>
+    </div>
+    <div
+      className="ola_field"
+    >
+      <label
+        className="ola_field-label"
+        htmlFor="score"
+      >
+        Team score
+      </label>
+      <div
+        className="ola_field-input"
+      >
+        <input
+          className="ola_input"
+          disabled={false}
+          id="score"
+          min="0"
+          name="score"
+          onChange={[Function]}
+          placeholder="Team score"
+          type="number"
+        />
+      </div>
+    </div>
+    <button
+      className="ola_button is-primary"
+      disabled={false}
+    >
+      <span
+        className="ola_button-text"
+      >
+        Add
+      </span>
+    </button>
+  </fieldset>
+</form>
+`;
