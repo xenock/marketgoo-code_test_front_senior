@@ -1,8 +1,17 @@
 @import '~@marketgoo/ola/dist/index.css';
 @import '~react-toastify/dist/ReactToastify.css';
 
-body {
-  background-color: coral;
+.Toastify__toast--info {
+  background: var(--brand);
+}
+.Toastify__toast--success {
+  background: var(--success);
+}
+.Toastify__toast--warning {
+  background: var(--warning);
+}
+.Toastify__toast--error {
+  background: var(--error);
 }
 
 fieldset {
@@ -11,7 +20,6 @@ fieldset {
 
 #app {
   background-color: white;
-  width: 800px;
   margin: auto;
   padding: 50px;
 }

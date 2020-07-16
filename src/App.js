@@ -1,14 +1,18 @@
 import React from 'react'
 import { ToastContainer } from 'react-toastify'
 
+import './App.module.css'
+
 import PlayerList from '@components/PlayerList'
 import PlayerForm from '@components/PlayerForm'
 
 const App = _ => (
   <>
-    <h1 className='ola-title ola-nomargin'>League Champion</h1>
-    <PlayerList />
-    <PlayerForm />
+    <h1 className='ola-title'>League Champion</h1>
+    <main>
+      <PlayerForm />
+      <PlayerList />
+    </main>
     <ToastContainer
       position='bottom-right'
       autoClose={5000}
@@ -16,7 +20,6 @@ const App = _ => (
       newestOnTop={false}
       closeOnClick
       rtl={false}
-      pauseOnFocusLoss
       draggable
       pauseOnHover
     />
