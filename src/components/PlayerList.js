@@ -1,9 +1,17 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { Table, TableRow, TableCell, Button, Spinner } from '@marketgoo/ola'
+import {
+  Table,
+  TableRow,
+  TableCell,
+  Spinner,
+  ButtonIcon,
+  Icon
+} from '@marketgoo/ola'
 import { removePlayerAPI, players as storedPlayers } from '@slices/players.js'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
+import styles from './PlayerList.module.css'
 
 axios.defaults.baseURL = 'http://localhost:3000'
 
@@ -25,45 +33,50 @@ const PlayerList = _ => {
       })
   }
 
-  return !players.length ? (
-    <Spinner className={null} size='big' />
-  ) : (
-    <Table caption={null} responsive sticky={false} stiky>
-      <thead>
-        <TableRow>
-          <TableCell header variant='left'>
-            Player
-          </TableCell>
-          <TableCell header variant='left'>
-            Team
-          </TableCell>
-          <TableCell header variant='right'>
-            Score
-          </TableCell>
-          <TableCell header variant='center'>
-            Actions
-          </TableCell>
-        </TableRow>
-      </thead>
-      <tbody>
-        {players.map(player => (
-          <TableRow key={player.id || Math.random()}>
-            <TableCell variant='multiline'>{player.name}</TableCell>
-            <TableCell variant='multiline'>{player.team}</TableCell>
-            <TableCell variant='numeric'>{player.score}</TableCell>
-            <TableCell variant='action'>
-              <Button
-                busy={synchronizing.includes(player.id) && 'Synchronizing'}
-                variant='primary'
-                onClick={() => handleDelete(player)}
-              >
-                Remove
-              </Button>
-            </TableCell>
-          </TableRow>
-        ))}
-      </tbody>
-    </Table>
+  return (
+    <div className={styles.list}>
+      {!players.length ? (
+        <Spinner size='big' />
+      ) : (
+        <Table caption={null} responsive sticky={false} stiky>
+          <thead>
+            <TableRow>
+              <TableCell header variant='left'>
+                Player
+              </TableCell>
+              <TableCell header variant='left'>
+                Team
+              </TableCell>
+              <TableCell header variant='right'>
+                Score
+              </TableCell>
+              <TableCell header variant='center'>
+                Actions
+              </TableCell>
+            </TableRow>
+          </thead>
+          <tbody>
+            {players.map(player => (
+              <TableRow key={player.id || Math.random()}>
+                <TableCell variant='multiline'>{player.name}</TableCell>
+                <TableCell variant='multiline'>{player.team}</TableCell>
+                <TableCell variant='numeric'>{player.score}</TableCell>
+                <TableCell variant='action'>
+                  <ButtonIcon
+                    as='button'
+                    busy={synchronizing.includes(player.id)}
+                    onClick={() => handleDelete(player)}
+                    variant='primary'
+                  >
+                    <Icon className={null} name='close' size='medium' />
+                  </ButtonIcon>
+                </TableCell>
+              </TableRow>
+            ))}
+          </tbody>
+        </Table>
+      )}
+    </div>
   )
 }
 

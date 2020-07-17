@@ -1,15 +1,15 @@
 import React from 'react'
 import { ToastContainer } from 'react-toastify'
 
-import './App.module.css'
+import style from './App.module.css'
 
 import PlayerList from '@components/PlayerList'
 import PlayerForm from '@components/PlayerForm'
 
 const App = _ => (
   <>
-    <h1 className='ola-title'>League Champion</h1>
-    <main>
+    <h1 className={`${style.h1} ola-title`}>League Champion</h1>
+    <main className={style.main}>
       <PlayerForm />
       <PlayerList />
     </main>

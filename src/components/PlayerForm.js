@@ -4,6 +4,7 @@ import axios from 'axios'
 import { Input, Field, Button } from '@marketgoo/ola'
 import { addPlayerAPI } from '@slices/players.js'
 import { toast } from 'react-toastify'
+import styles from './PlayerForm.module.css'
 
 axios.defaults.baseURL = 'http://localhost:3000'
 
@@ -48,9 +49,9 @@ const PlayerForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <fieldset>
-        <legend>Add new players</legend>
+        <legend className='ola-headline'>Add new players</legend>
         <Field id='name' label='Player name' error={!valid && !player.name}>
           <Input
             name='name'
