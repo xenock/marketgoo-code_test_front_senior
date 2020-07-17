@@ -1,0 +1,191 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlayerList snapshots renders a list 1`] = `
+<div
+  className="ola_table-container is-responsive"
+>
+  <table
+    className="ola_table"
+  >
+    <thead>
+      <tr
+        className="ola_tableRow"
+      >
+        <th
+          className="ola_tableCell is-left"
+        >
+          Player
+        </th>
+        <th
+          className="ola_tableCell is-left"
+        >
+          Team
+        </th>
+        <th
+          className="ola_tableCell is-right"
+        >
+          Score
+        </th>
+        <th
+          className="ola_tableCell is-center"
+        >
+          Actions
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        className="ola_tableRow"
+      >
+        <td
+          className="ola_tableCell is-multiline"
+        >
+          Peter
+        </td>
+        <td
+          className="ola_tableCell is-multiline"
+        >
+          Pandas
+        </td>
+        <td
+          className="ola_tableCell is-numeric"
+        >
+          517
+        </td>
+        <td
+          className="ola_tableCell is-action"
+        >
+          <button
+            className="ola_button is-primary"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="ola_button-text"
+            >
+              Remove
+            </span>
+          </button>
+        </td>
+      </tr>
+      <tr
+        className="ola_tableRow"
+      >
+        <td
+          className="ola_tableCell is-multiline"
+        >
+          Jhon
+        </td>
+        <td
+          className="ola_tableCell is-multiline"
+        >
+          Cobrakay
+        </td>
+        <td
+          className="ola_tableCell is-numeric"
+        >
+          490
+        </td>
+        <td
+          className="ola_tableCell is-action"
+        >
+          <button
+            className="ola_button is-primary"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="ola_button-text"
+            >
+              Remove
+            </span>
+          </button>
+        </td>
+      </tr>
+      <tr
+        className="ola_tableRow"
+      >
+        <td
+          className="ola_tableCell is-multiline"
+        >
+          Tommy
+        </td>
+        <td
+          className="ola_tableCell is-multiline"
+        >
+          Space
+        </td>
+        <td
+          className="ola_tableCell is-numeric"
+        >
+          716
+        </td>
+        <td
+          className="ola_tableCell is-action"
+        >
+          <button
+            className="ola_button is-primary"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="ola_button-text"
+            >
+              Remove
+            </span>
+          </button>
+        </td>
+      </tr>
+      <tr
+        className="ola_tableRow"
+      >
+        <td
+          className="ola_tableCell is-multiline"
+        >
+          Blair Downs
+        </td>
+        <td
+          className="ola_tableCell is-multiline"
+        >
+          Rogan Rasmussen
+        </td>
+        <td
+          className="ola_tableCell is-numeric"
+        >
+          116
+        </td>
+        <td
+          className="ola_tableCell is-action"
+        >
+          <button
+            className="ola_button is-primary"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="ola_button-text"
+            >
+              Remove
+            </span>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`PlayerList snapshots renders a spinner 1`] = `
+<svg
+  className="ola_spinner is-big"
+  height={140}
+  viewBox="0 0 140 140"
+  width={140}
+>
+  <circle
+    cx={70}
+    cy={70}
+    r={62}
+  />
+</svg>
+`;
